@@ -13,7 +13,7 @@ const app = new Vue({
             console.log(this.show_Grid)
         },
         onZoom() {
-            console.log(this.zoom)
+            Redraw(point, 0, 1, 1 / this.zoom, 1 / this.zoom);
         },
         zoomIn() {
             if (this.zoom != 100) {
