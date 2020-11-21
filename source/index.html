@@ -1,3 +1,5 @@
+<!Doctype html>
+
 <html lang='ru'>
 
 <head>
@@ -6,7 +8,7 @@
     </title>
 </head>
 
-<body>
+<body onload="proc_formula()">
     <div id="app">
         <h1>Kennel Graphic Calculator</h1>
         <div class="buttonspanel">
@@ -16,10 +18,8 @@
             <button v-on:click=zoomIn> + </button>
         </div>
 
-        <canvas id="plot" width=1000 height=600></canvas>
-
         <div class="graphic">
-            <canvas width=500, height=500></canvas>
+            <canvas id="plot" width=500, height=500></canvas>
         </div>
         <div class="input-field">
             <input v-model="formula" placeholder="Type your formula...">
@@ -31,9 +31,7 @@
     <script src="js/input_converter.js"></script>
     <script src="js/points.js"></script>
     <script src="js/Uicringe.js"></script>
-    <script src="js/Graph_draw.js">
-        setup_drawer();
-    </script>
+    <script src="js/Graph_draw.js"></script>
 </body>
 
 </html>
