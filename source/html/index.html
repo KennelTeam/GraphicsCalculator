@@ -5,7 +5,7 @@
         </title>
     </head>
     <body>
-        <canvas id="plot" width=1000 height=300></canvas>
+        <canvas id="plot" width=1000 height=600></canvas>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script>
             class point {
@@ -32,29 +32,12 @@
                 return A - Math.floor(A / B);
             }
 
-            function Redraw(pts) {
+            function Redraw(pts, minX, minY, SZX, SZY) {
                 var cvas = document.getElementById("plot");
                 var ctx = cvas.getContext("2d")
-                var minX = 99999999;
-                var maxX = -99999999;
-                var minY = 99999999;
-                var maxY = -99999999;
-                for (var i = 0; i < pts.length; i++) {
-                    var p = pts[i];
-                    //console.log(3.25 % 1)
-                    if (p.x < minX) {
-                        minX = p.x;
-                    }
-                    if (p.x > maxX) {
-                        maxX = p.x;
-                    }
-                    if (p.y < minY) {
-                        minY = p.y;
-                    }
-                    if (p.y > maxY) {
-                        maxY = p.y;
-                    }
-                }
+                minY *= -1;
+                var maxX = minX + SZX;
+                var maxY = minY + SZY;
                 ctx.beginPath();
                 ctx.lineWidth = 1;
                 //ctx.strokeStyle = 'silver';
@@ -102,7 +85,7 @@
                 ctx.closePath();
             }
 
-            Redraw(points);
+            Redraw(points, 0, 1, 1, 1);
         </script>
     </body>
 </html>
