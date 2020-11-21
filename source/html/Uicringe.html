@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Title</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>Kennel Graphic Calculator</h1>
+    <div class="buttonspanel">
+      <label> <input v-on:click="showGrid" v-model="show_Grid" type="checkbox"> Show grid </label>
+      <button v-on:click=zoomOut > - </button>
+      <label> <input v-on:click="onZoom" v-model="zoom" type="range"> </label>
+      <button v-on:click=zoomIn > + </button>
+    </div>
+    <div class="graphic">
+      <canvas width=500, height=500></canvas>
+    </div>
+    <div class="input-field">
+      <input v-model="formula" placeholder="Type your formula...">
+      <button v-on:click=getFormula > enter </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- <script> src="main.js"</script> -->
+  <script>
+    const app = new Vue({
+    el: '#app',
+    data: {
+      formula: '',
+      show_Grid: true,
+      zoom: 0
+    },
+    methods: {
+        getFormula() {
+          console.log(this.formula)
+        },
+        showGrid() {
+          console.log(this.show_Grid)
+        },
+        onZoom() {
+          console.log(this.zoom)
+        },
+        zoomIn() {
+          if (this.zoom != 100) this.zoom++;
+          console.log(this.zoom)
+        },
+        zoomOut() {
+          if (this.zoom != 0) this.zoom--;
+          console.log(this.zoom)
+        }
+    }
+  })
+  </script>
+
+</body>
+</html>
