@@ -18,10 +18,15 @@
     
       <style src="..\css\input.css">
       </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
 </head>
 
 <body>
-
+  <link rel="import" href="testInclude.html">
+  
     <div id="app1">
         <div class="input-group input-group-sm mb-3" style="margin: 2em;margin-left: 2em0;">
             <div class="input-group-prepend">
@@ -32,7 +37,7 @@
         <button @click="recalculate" type="button" class="btn btn-primary" style="align-self: center;">Запустить</button>
         <div id="formula-view"></div>
 
-        {{inputText}}
+        {{updateText}}
         
     </div>
 

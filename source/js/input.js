@@ -86,7 +86,7 @@ var app1 = new Vue({
         }
     },
     computed: {
-        inputText(){
+        updateText(){
             this.recalculate();
             return ""
         }
