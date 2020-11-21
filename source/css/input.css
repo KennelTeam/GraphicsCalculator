@@ -1,0 +1,11 @@
+latex-js {
+    display: inline-block;
+    width: 40%;
+    margin-right: 2em;
+}
+
+.formula {
+    display: inline;
+    width: 10em;
+    border-color: rgb(212, 0, 0);
+}

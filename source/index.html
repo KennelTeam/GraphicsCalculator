@@ -1,0 +1,37 @@
+<!Doctype html>
+
+<html lang='ru'>
+
+<head>
+    <title>
+        TestPage
+    </title>
+</head>
+
+<body onload="proc_formula()">
+    <div id="app">
+        <h1>Kennel Graphic Calculator</h1>
+        <div class="buttonspanel">
+            <label> <input v-on:click="showGrid" v-model="show_Grid" type="checkbox"> Show grid </label>
+            <button v-on:click=zoomOut> - </button>
+            <label> <input v-on:click="onZoom" v-model="zoom" type="range"> </label>
+            <button v-on:click=zoomIn> + </button>
+        </div>
+
+        <div class="graphic">
+            <canvas id="plot" width=500, height=500></canvas>
+        </div>
+        <div class="input-field">
+            <input v-model="formula" placeholder="Type your formula...">
+            <button v-on:click=getFormula> enter </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/input_converter.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/Uicringe.js"></script>
+    <script src="js/Graph_draw.js"></script>
+</body>
+
+</html>
