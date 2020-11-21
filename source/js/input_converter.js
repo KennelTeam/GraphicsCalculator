@@ -1,7 +1,7 @@
 const operators = new Array("+", "-", "*", "/");
 
 function proc_formula(str) {
-    // var str = "x*34/(56*x/23-(78*x))+(12+8+x)"
+    var str = "x*34/(56*x/23-(78*x))+(12+8+x)"
     var bracksParent = parse_brackets(str);
     var expNums = /[0-9]+/g;
     var expVars = /x/g;
@@ -13,8 +13,10 @@ function proc_formula(str) {
     allData.push(nums);
     allData.push(defs);
     allData.push(opers);
+    console.log(allData);
 
     var funcParent = generate_pattern(allData, bracksParent);
+    console.log(funcParent.calculate(4.78));
     return funcParent;
 }
 
@@ -95,13 +97,16 @@ class Func_part {
             return x;
         } else {
             var res = this.members[0];
-            if (!(/[0-9]/.test(res.toString()))) {
+            if (!(/[0-9]/.test(res))) {
                 res = res.calculate(x);
             }
             this.members.shift();
+            console.log("MEMBERS")
+            console.log(this.members)
+            console.log(this.signs)
             for (var i = 0; i < this.signs.length; i++) {
                 var next = this.members[i];
-                if (!(/[0-9]/.test(next.toString()))) {
+                if (!(/[0-9]/.test(next))) {
                     next = next.calculate(x);
                 }
                 switch (this.signs[i]) {
