@@ -22,14 +22,18 @@
 
 <body>
 
-    <div id="app">
-        <div class="input-group input-group-sm mb-3" style="margin: 2em;margin-left: 2em;">
+    <div id="app1">
+        <div class="input-group input-group-sm mb-3" style="margin: 2em;margin-left: 2em0;">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-sm">Формула</span>
             </div>
             <input v-model="text" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-          </div>
-        {{ texText }}
+        </div>
+        <button @click="recalculate" type="button" class="btn btn-primary" style="align-self: center;">Запустить</button>
+        <div id="formula-view"></div>
+
+        {{inputText}}
+        
     </div>
 
     <script src="..\js\input.js"></script>
